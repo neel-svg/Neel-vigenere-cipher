@@ -3,7 +3,6 @@
 # # Description:
 # # A class consisting of functions to encode and decode sample text with a given key using the Vigenere cipher.
 
-
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
 alphabet_count = len(alphabet)
@@ -46,13 +45,13 @@ def decrypt_message(encrypted_message, key):
     return decrypted_message
 
 
-if __name__ == '__main__':
-    plaintext = "secretmessage"
-    keytext = "key"
-    cipher_text = encrypt_message(plaintext, keytext)
-    decipher_text = decrypt_message(cipher_text, keytext)
-
-    print("Message: " + plaintext)
-    print("Password: " + keytext)
-    print("The ecnrypted message is: " + cipher_text)
-    print("The decrypted message is: " + decipher_text)
+# if __name__ == '__main__':
+#     plaintext = "secretmessage"
+#     keytext = "key"
+#     cipher_text = encrypt_message(plaintext, keytext)
+#     decipher_text = decrypt_message(cipher_text, keytext)
+#
+#     print("Message: " + plaintext)
+#     print("Password: " + keytext)
+#     print("The ecnrypted message is: " + cipher_text)
+#     print("The decrypted message is: " + decipher_text)
