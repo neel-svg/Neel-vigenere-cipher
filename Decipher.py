@@ -1,7 +1,7 @@
 # # Author: Neel Paranjape
 # # Date: 24/04/2021
 # # Description:
-# # A function to encode and decode sample text with a given key using the Vigenere cipher.
+# # Functions
 import collections
 from collections import Counter
 from Vigenere_Cipher import encrypt_char, encrypt_message, decrypt_char, decrypt_message
@@ -21,7 +21,7 @@ def get_factors(number):
         return []
     else:
         for i in range(2, number + 1):
-            if number % i == 0: #if factor
+            if number % i == 0: #if a factor
                 factors.append(i)
     return factors
 
