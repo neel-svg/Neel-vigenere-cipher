@@ -2,6 +2,7 @@
 # # Date: 24/04/2021
 # # Description:
 # # A function to encode and decode sample text with a given key using the Vigenere cipher.
+import collections
 from collections import Counter
 from Vigenere_Cipher import encrypt_char, encrypt_message, decrypt_char, decrypt_message
 
@@ -70,6 +71,11 @@ def generate_subkeys(encrypted, subkey_length):
     return "".join(subkeys)
 
 
+def frequency_of_letters(subkey):
+    ETAOIN = 'etaoinshrdlcumwfgypbvkjxqz'
+    count =
+
+
 def key_length(encrypted):
     pass
 
@@ -95,3 +101,4 @@ if __name__ == '__main__':
     print(get_factors(20))
     print(common_factors(sequence_occurrences(cipher_text)))
     print(highest_occurrence(common_factors(sequence_occurrences(cipher_text))))
+    print(generate_subkeys(cipher_text, ))

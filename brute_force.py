@@ -14,19 +14,23 @@ def generate_keys():
     return keywords
 
 
-def decipher(encrypted, possible_keys):
+def decipher(encrypted):
     possible_txt = []
     possible_keys = generate_keys()
     for key in possible_keys:
-        possible_txt = decrypt_message(encrypted, key)
-        d = enchant.Dict("en-US")
-        for words in d:
-            if search(words, possible_txt): #checking for substrings in possible text, if a substring from the dictionary occurs, stop program and promt user, else continue
-                return possible_txt
-    return possible_txt
+        possible_txt += decrypt_message(encrypted, key)
+        wordlist = open('wordlist.txt')
+        wordlist.readlines()
+        wordlist.close()
 
-    #run the decryption function against all possible key values
-    # check against dictionary for substrings, which has most amount of substrings existing in it is the answer
+        if search(dictionary, possible_txt):
+
+    # checking for substrings in possible text, if a substring from the dictionary occurs, stop program and promt user, else continue
+        return possible_txt
+
+
+# run the decryption function against all possible key values
+# check against dictionary for substrings, which has most amount of substrings existing in it is the answer
 
 
 if __name__ == '__main__':
@@ -34,11 +38,11 @@ if __name__ == '__main__':
     keytext = 'ke'
     possible_key = generate_keys()
 cipher_text = encrypt_message(plaintext, keytext)
-decipher_text = decipher(cipher_text, possible_key)
+decipher_text = decipher(cipher_text)
 
 print("Message: " + plaintext)
 print("Password: " + keytext)
 print("The encrypted message is: " + cipher_text)
 print("The decrypted message is: " + decipher_text)
 
-print(decipher('secretmessage', generate_keys()))
+
