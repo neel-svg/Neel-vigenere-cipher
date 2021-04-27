@@ -1,8 +1,10 @@
 # # Author: Neel Paranjape
 # # Date: 24/04/2021
 # # Description:
-# # A class consisting of functions to encode and decode sample text with a given key using the Vigenere cipher.
+# # A function to encode and decode sample text with a given key using the Vigenere cipher.
 
+
+#Defining set of characters
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
 alphabet_count = len(alphabet)
