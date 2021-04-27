@@ -6,21 +6,22 @@ import collections
 from collections import Counter
 from Vigenere_Cipher import encrypt_char, encrypt_message, decrypt_char, decrypt_message
 
-
+#identifying varying sequences within the encrypted string
 def sequence_occurrences(encrypted):
     out = []
-    for length in range(2, 7):
+    for length in range(2, 7): #range for potential length of key
         out += sequence_spacing(encrypted, length)
     return out
 
 
+#getting factors of the numbers
 def get_factors(number):
     factors = []
-    if number < 2:
+    if number < 2: #factors less than 2 are futile
         return []
     else:
         for i in range(2, number + 1):
-            if number % i == 0:
+            if number % i == 0: #if factor
                 factors.append(i)
     return factors
 
@@ -36,16 +37,16 @@ def common_factors(sequence_values):
 
 
 # find all factors with highest occurrence and sort accordingly
-
 def highest_occurrence(factors):
     sorted_occurrences = []
-    sorted_occurrences += Counter(factors).most_common()
+    sorted_occurrences += Counter(factors).most_common() #sort occurrances in terms of most common factors
     highest = sorted_occurrences[0][1]
-    sorted_occurrences = [i[0] for i in sorted_occurrences if i[1] == highest]
+    sorted_occurrences = [i[0] for i in sorted_occurrences if i[1] == highest] #filtering out number of occurrences and defining number.
 
     return sorted_occurrences
 
 
+# sequence spacing function determines individual sequences
 def sequence_spacing(encrypted, sequence_length):
     sequence_spacings = []
     string_length = len(encrypted)
@@ -60,7 +61,7 @@ def sequence_spacing(encrypted, sequence_length):
                 sequence_spacings.append(x - i)
     return sequence_spacings
 
-
+#attemped to generate the subkeys, first stripped the encrypted string of all non letter characters.
 def generate_subkeys(encrypted, subkey_length):
     encrypted = encrypted.sub("[^a-zA-Z0-9]+", "", encrypted)
     subkeys = []
@@ -71,9 +72,7 @@ def generate_subkeys(encrypted, subkey_length):
     return "".join(subkeys)
 
 
-def frequency_of_letters(subkey):
-    ETAOIN = 'etaoinshrdlcumwfgypbvkjxqz'
-    count =
+
 
 
 def key_length(encrypted):
@@ -87,9 +86,10 @@ def decipher(encrypted, possible_key):
     # dynamically compare all outputs against english dictionary words, stop when english text is found
 
 
+
 if __name__ == '__main__':
-    plaintext = "hellomynameisbobandilikeapplesandpearsbutifyouseemeontvyouareme"
-    keytext = "keyme"
+    plaintext = "hellomynameisbobandilikeapplesandpearsbutifyouseemeontvyouaremehellohello"
+    keytext = "key"
     cipher_text = encrypt_message(plaintext, keytext)
     decipher_text = decrypt_message(cipher_text, keytext)
 
@@ -100,5 +100,7 @@ if __name__ == '__main__':
     print(sequence_occurrences(cipher_text))
     print(get_factors(20))
     print(common_factors(sequence_occurrences(cipher_text)))
+    print('The key length is most likely: ')
     print(highest_occurrence(common_factors(sequence_occurrences(cipher_text))))
-    print(generate_subkeys(cipher_text, ))
+
+

@@ -4,12 +4,13 @@
 # # A function to encode and decode sample text with a given key using the Vigenere cipher.
 
 
-#Defining set of characters
+# Defining set of characters
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
+# length
 alphabet_count = len(alphabet)
 
-
+# encrypting single character
 def encrypt_char(plaintext, key):
     key_index = alphabet.index(key)
     plaintext_index = alphabet.index(plaintext)
@@ -18,7 +19,7 @@ def encrypt_char(plaintext, key):
 
     return cipher_char
 
-
+#decrypting single character
 def decrypt_char(ciphertext, key):
     key_index = alphabet.index(key)
     ciphertext_index = alphabet.index(ciphertext)
@@ -27,7 +28,7 @@ def decrypt_char(ciphertext, key):
 
     return decipher_char
 
-
+#encrypting message
 def encrypt_message(message, key):
     encrypted_message = ''
 
@@ -37,7 +38,7 @@ def encrypt_message(message, key):
         encrypted_message += encrypt_char(message_character, key_char)
     return encrypted_message
 
-
+#decrypting message
 def decrypt_message(encrypted_message, key):
     decrypted_message = ''
     for (message_index, message_character) in enumerate(encrypted_message):
@@ -45,7 +46,6 @@ def decrypt_message(encrypted_message, key):
         key_char = key[key_index]
         decrypted_message += decrypt_char(message_character, key_char)
     return decrypted_message
-
 
 # if __name__ == '__main__':
 #     plaintext = "secretmessage"
